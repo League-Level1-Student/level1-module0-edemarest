@@ -26,9 +26,10 @@ public class PhotoQuiz {
 		// 1. find an image on the internet, and put its URL in a String
 		// variable (from your browser, right click on the image, and select
 		// “Copy Image Address”)
-
+			String image = "https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80";
 		// 2. create a variable of type "Component" that will hold your image
-
+			Component comp = new Component();
+			createImage();
 		// 3. use the "createImage()" method below to initialize your Component
 
 		// 4. add the image to the quiz window
