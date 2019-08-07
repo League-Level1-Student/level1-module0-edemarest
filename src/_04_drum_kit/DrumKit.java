@@ -21,11 +21,28 @@ import javax.swing.JPanel;
 public class DrumKit implements MouseListener {
 
 	JLabel drumLabelWithImage;
-
+	MouseListener listener = new MouseListener();
 	public void run() throws MalformedURLException {
-
+		
 		// 1. Make a JFrame variable and initialize it using "new JFrame()"
-
+			JFrame frame = new JFrame();
+			frame.setVisible(true);
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.setSize(500, 500);
+			frame.setTitle("Drum Kit");
+			JPanel panel = new JPanel();
+			frame.add(panel);
+			String imagename = "drum.png";
+			drumLabelWithImage = createLabelImage(imagename);
+			panel.add(drumLabelWithImage);
+			panel.setLayout(new GridLayout());
+			frame.pack();
+			
+			drumLabelWithImage.addMouseListener(listener);
+			
+			
+			
+			
 		// 2. Make the frame visible and
 		// set its default close operation to JFrame.EXIT_ON_CLOSE
 
@@ -62,7 +79,7 @@ public class DrumKit implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		// 14. Print "mouse clicked" to the console. Run your program and watch
 		// the console to see when this is printed.
-
+		System.out.println("Mouse clicked");
 		JLabel drumClicked = (JLabel) e.getSource(); // This line gets the label
 														// that the mouse
 														// clicked on

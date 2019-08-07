@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 public class PhotoQuiz {
 
@@ -20,24 +21,25 @@ public class PhotoQuiz {
 
 		JFrame quizWindow = new JFrame();
 		quizWindow.setVisible(true);
+		//JPanel panel = new JPanel();
+		//quizWindow.add(panel);
 		// This will make sure the program exits when you close the window
 		quizWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// 1. find an image on the internet, and put its URL in a String
 		// variable (from your browser, right click on the image, and select
 		// “Copy Image Address”)
-			String image = "https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80";
+			//
 		// 2. create a variable of type "Component" that will hold your image
-			Component comp = new Component();
-			createImage();
+			//Component comp;
 		// 3. use the "createImage()" method below to initialize your Component
-
+			//comp = createImage(image);
 		// 4. add the image to the quiz window
-
+			//quizWindow.add(comp);
 		// 5. call the pack() method on the quiz window
-
+			
 		// 6. ask a question that relates to the image
-
+			
 		// 7. print "CORRECT" if the user gave the right answer
 
 		// 8. print "INCORRECT" if the answer is wrong
@@ -48,7 +50,27 @@ public class PhotoQuiz {
 		// 10. find another image and create it (might take more than one line
 		// of code)
 
-		// 11. add the second image to the quiz window
+			String imagetwo = "https://i.ytimg.com/vi/P_SeZhpqbvE/maxresdefault.jpg";
+			Component comptwo;
+			comptwo = createImage(imagetwo);
+			quizWindow.add(comptwo);
+			quizWindow.pack();
+			
+			String image = "https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80";
+			Component comp;
+			comp = createImage(image);
+			quizWindow.add(comp);
+			quizWindow.pack();
+			
+			String answerone = JOptionPane.showInputDialog("Is this the morning or the afternoon?");
+			
+			if (answerone.equals("afternoon")) {
+				System.out.println("CORRECT");
+			}
+			else {
+				System.out.println("INCORRECT");
+			}
+			// 11. add the second image to the quiz window
 
 		// 12. pack the quiz window
 
