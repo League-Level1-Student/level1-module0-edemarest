@@ -15,7 +15,7 @@ public class Fortune_Cookie implements ActionListener {
 	public void showButton() {
 	     JFrame frame = new JFrame();
 	     frame.setVisible(true);
-	     JButton button = new JButton();
+	     JButton button = new JButton("Get fortune");
 	     frame.add(button);
 	     frame.pack();
 	     
@@ -39,7 +39,7 @@ public class Fortune_Cookie implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stuff
 		int rand = new Random().nextInt(5);
-		String fortune;
+		String fortune = null;
 		if (rand == 0) {
 			fortune = "You will recieve V-Bucks in the next 24 hours";
 		}
