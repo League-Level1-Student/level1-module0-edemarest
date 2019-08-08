@@ -19,9 +19,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class DrumKit implements MouseListener {
-
+	JLabel cymbalimage;
 	JLabel drumLabelWithImage;
-	MouseListener listener = new MouseListener();
 	public void run() throws MalformedURLException {
 		
 		// 1. Make a JFrame variable and initialize it using "new JFrame()"
@@ -32,14 +31,21 @@ public class DrumKit implements MouseListener {
 			frame.setTitle("Drum Kit");
 			JPanel panel = new JPanel();
 			frame.add(panel);
+			//IMAGE ONE
 			String imagename = "drum.png";
 			drumLabelWithImage = createLabelImage(imagename);
+			drumLabelWithImage.setSize(100, 100);
 			panel.add(drumLabelWithImage);
+			//IMAGE TWO
+			String cymbalname = "cymbal.jpg";
+			cymbalimage = createLabelImage(cymbalname);
+			cymbalimage.setSize(100, 100);
+			panel.add(cymbalimage);
 			panel.setLayout(new GridLayout());
 			frame.pack();
 			
-			drumLabelWithImage.addMouseListener(listener);
-			
+			drumLabelWithImage.addMouseListener(this);
+			cymbalimage.addMouseListener(this);
 			
 			
 			
@@ -83,7 +89,7 @@ public class DrumKit implements MouseListener {
 		JLabel drumClicked = (JLabel) e.getSource(); // This line gets the label
 														// that the mouse
 														// clicked on
-
+		
 		// 15. Download a drum sound and drop it into your "default package".
 		// You can find it on freesound.org. To download it, log in as
 		// leagueofamazing/code4life.
@@ -92,8 +98,11 @@ public class DrumKit implements MouseListener {
 
 		// 17. ...use the playSound method to play a drum sound. Test to see if
 		// it works
+		if (e.getSource().equals(drumClicked));
+		playSound("drum.wav");
+		}
 
-	}
+	
 
 	private JLabel createLabelImage(String fileName) throws MalformedURLException {
 		URL imageURL = getClass().getResource(fileName);
