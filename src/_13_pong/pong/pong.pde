@@ -9,6 +9,7 @@ float speed = random(1, 9);
 float speedy = random(1, 9);
 float paddlex;
 float paddley = 485;
+int score = 0;
 void setup() {
   backgroundImage = loadImage("pong.png");
   minim = new Minim (this);
@@ -41,8 +42,28 @@ void draw() {
   xpos = xpos + speed;
   ypos = ypos + speedy;
   
-  if (ypos > paddley && xpos > mouseX && xpos < mouseX + paddleLength) {
+  if (ypos > paddley - 10 && xpos > mouseX && xpos < mouseX + paddleLength) {
+    speedy = speedy + 2;
     speedy = -speedy;
+    score++;
+    println("score: " + score);
+  }
+  else if (ypos >= width - 10) {
+    score--;
+    println("score: " + score);
+  }
+  
+  if (score < 0) {
+    background(200, 0, 0);
+    textSize(30);
+    text("YOU LOSE!", 200, 200); 
+    stop();
+  }
+  if (score == 10) {
+    background(0, 200, 0);
+    textSize(30);
+    text("YOU WIN!", 200, 200); 
+    stop();
   }
   
   //if (xpos <= mouseX + 60 || xpos >= mouseX - 60) {
